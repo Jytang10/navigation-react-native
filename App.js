@@ -4,19 +4,28 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 import Home from './Home';
 import Profile from './Profile';
 import Feed from './Feed';
+import News from './News';
 
-const FirstNavGroup = createStackNavigator({
-  Home: {
-    screen: Home
-  },
-  Feed: {
+const FirstNavGroup = createBottomTabNavigator({
+  News: {
     screen: Feed
   },
   Profile: {
     screen: Profile
   }
 },{
+  initialRouteName:'News'
+})
+
+const SecondNavGroup = createSwitchNavigator({
+  Home: {
+    screen: Home
+  },
+  Feed: {
+    screen: FirstNavGroup
+  }
+},{
   initialRouteName:'Home'
 })
 
-export default createAppContainer(FirstNavGroup)
+export default createAppContainer(SecondNavGroup)

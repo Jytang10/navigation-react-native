@@ -4,28 +4,36 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 import Home from './Home';
 import Profile from './Profile';
 import Feed from './Feed';
-import News from './News';
 
-const FirstNavGroup = createBottomTabNavigator({
-  News: {
-    screen: Feed
+const FirstNavGroup = createStackNavigator({
+  Home: {
+    screen: Home,
+    navigationOptions: () => ({
+      title: 'Home'
+    })
+  },
+  Feed: {
+    screen: Feed,
+    navigationOptions: () => ({     //edit styles here to change styles for specific screen's header
+      title: 'Feed',
+      headerStyle: {
+        backgroundColor: '#f39c12'
+      }
+    })
   },
   Profile: {
     screen: Profile
   }
 },{
-  initialRouteName:'News'
+  initialRouteName:'Home',
+  defaultNavigationOptions: () => ({    //edit styles here to change the global header
+    title: 'React Native Navigation',
+    headerStyle: {
+      backgroundColor: '#34495e'
+    },
+    headerTintColor: '#c0392b'
+  }),
+  headerLayoutPreset: 'left'
 })
 
-const SecondNavGroup = createSwitchNavigator({
-  Home: {
-    screen: Home
-  },
-  Feed: {
-    screen: FirstNavGroup
-  }
-},{
-  initialRouteName:'Home'
-})
-
-export default createAppContainer(SecondNavGroup)
+export default createAppContainer(FirstNavGroup)

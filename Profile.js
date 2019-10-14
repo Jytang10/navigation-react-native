@@ -8,7 +8,7 @@ class Profile extends Component {
     return (
       <View style={styles.container}>
         <Text style={{fontSize:35, marginBottom: 20}}>Profile</Text>
-        <Button title="Go to Home"></Button>
+        <Button title="Go to Home" onPress={() => this.props.navigation.navigate('Home')}></Button>
       </View>
     );
   }

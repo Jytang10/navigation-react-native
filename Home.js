@@ -8,7 +8,7 @@ class Home extends Component {
     return (
       <View style={styles.container}>
         <Text style={{fontSize:35, marginBottom: 20}}>Home</Text>
-        <Button title="Go to Feed"></Button>
+        <Button title="Go to Feed" onPress={() => this.props.navigation.navigate('Feed', {userName: "MajorJ", Subscriber:"10 million", Age:"25"})}></Button>
       </View>
     );
   }

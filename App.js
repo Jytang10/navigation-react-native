@@ -7,13 +7,13 @@ import Home from './Home';
 import Profile from './Profile';
 import Feed from './Feed';
 
-const FirstNavGroup = createStackNavigator({
+const FirstNavGroup = createBottomTabNavigator({
   Home: {
     screen: Home,
-    navigationOptions: () => ({
-      title: 'Home',
-      header: null
-    })
+    // navigationOptions: () => ({
+    //   title: 'Home',
+    //   header: null
+    // })
   },
   Feed: {
     screen: Feed,
@@ -29,18 +29,26 @@ const FirstNavGroup = createStackNavigator({
   }
 },{
   initialRouteName:'Home',
-  defaultNavigationOptions: () => ({    //edit styles here to change the global header
-    //title: 'React Native Navigation',
-    headerRight: <View style={{paddingRight:10}}><Button title="Menu"></Button></View>,
-    headerStyle: {
-      backgroundColor: '#34495e'
-    },
-    headerTitle: <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/mytry-bea8d.appspot.com/o/eve.png?alt=media&token=004e2c4e-9000-4ec4-a82f-866b71f3bd60'}} style={{height:50, width:50}}></Image>,
-    // headerTintColor: '#c0392b',
-    // headerTitleStyle: {
-    //   fontSize: 20
-    // }
-  }),
+  tabBarOptions: {
+    activeTintColor:'#c0392b',   //changes color of the current screen's title in bottom nav
+    activeBackgroundColor:'#95a5a6',  //changes color of background of active tab only
+    // showLabel: false,
+    style: {
+      backgroundColor:'#2c3e50'
+    }
+  }
+  // defaultNavigationOptions: () => ({    //edit styles here to change the global header
+  //   //title: 'React Native Navigation',
+  //   headerRight: <View style={{paddingRight:10}}><Button title="Menu"></Button></View>,
+  //   headerStyle: {
+  //     backgroundColor: '#34495e'
+  //   },
+  //   headerTitle: <Image source={{uri:'https://firebasestorage.googleapis.com/v0/b/mytry-bea8d.appspot.com/o/eve.png?alt=media&token=004e2c4e-9000-4ec4-a82f-866b71f3bd60'}} style={{height:50, width:50}}></Image>,
+  //   // headerTintColor: '#c0392b',
+  //   // headerTitleStyle: {
+  //   //   fontSize: 20
+  //   // }
+  // }),
   // headerLayoutPreset: 'left',
 })
 

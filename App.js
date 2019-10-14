@@ -3,6 +3,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import React from 'react';
 import {Image, Button, View} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import Home from './Home';
 import Profile from './Profile';
 import Feed from './Feed';
@@ -10,6 +11,11 @@ import Feed from './Feed';
 const FirstNavGroup = createBottomTabNavigator({
   Home: {
     screen: Home,
+    navigationOptions: (navigation) => ({
+      tabBarIcon:({focused, tintColor}) => {
+        return <Icon name="music" size={20} color={tintColor}></Icon>
+      }
+    })
     // navigationOptions: () => ({
     //   title: 'Home',
     //   header: null
@@ -17,6 +23,11 @@ const FirstNavGroup = createBottomTabNavigator({
   },
   Feed: {
     screen: Feed,
+    navigationOptions: (navigation) => ({
+      tabBarIcon:({focused, tintColor}) => {
+        return <Icon name="hand-o-up" size={20} color={tintColor}></Icon>
+      }
+    })
     // navigationOptions: () => ({     //edit styles here to change styles for specific screen's header
     //   title: 'Feed',
     //   headerStyle: {
@@ -25,7 +36,12 @@ const FirstNavGroup = createBottomTabNavigator({
     // })
   },
   Profile: {
-    screen: Profile
+    screen: Profile,
+    navigationOptions: (navigation) => ({
+      tabBarIcon:({focused, tintColor}) => {
+        return <Icon name="flask" size={20} color={tintColor}></Icon>
+      }
+    })
   }
 },{
   initialRouteName:'Home',
@@ -33,6 +49,9 @@ const FirstNavGroup = createBottomTabNavigator({
     activeTintColor:'#c0392b',   //changes color of the current screen's title in bottom nav
     activeBackgroundColor:'#95a5a6',  //changes color of background of active tab only
     // showLabel: false,
+    labelStyle:{
+      fontSize:16
+    },
     style: {
       backgroundColor:'#2c3e50'
     }

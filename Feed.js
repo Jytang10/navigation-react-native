@@ -9,6 +9,9 @@ class Feed extends Component {
       <View style={styles.container}>
         <Text style={{fontSize:35, marginBottom: 20}}>Feed</Text>
         <Button title="Go to Profile" onPress={() => this.props.navigation.navigate('Profile')}></Button>
+        <Text>User Name: {this.props.navigation.state.params.userName}</Text>
+        <Text>Subscribers: {this.props.navigation.state.params.Subscriber}</Text>
+        <Text>Age: {this.props.navigation.state.params.Age}</Text>
       </View>
     );
   }

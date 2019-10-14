@@ -1,9 +1,11 @@
 import {createSwitchNavigator, createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
 import Home from './Home';
 import Profile from './Profile';
 import Feed from './Feed';
 
-const FirstNavGroup = createSwitchNavigator({
+const FirstNavGroup = createStackNavigator({
   Home: {
     screen: Home
   },
@@ -14,7 +16,7 @@ const FirstNavGroup = createSwitchNavigator({
     screen: Profile
   }
 },{
-  initialRouteName:'Feed'
+  initialRouteName:'Home'
 })
 
 export default createAppContainer(FirstNavGroup)

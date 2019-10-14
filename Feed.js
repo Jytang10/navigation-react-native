@@ -1,13 +1,14 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
 // create a component
 class Feed extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Feed</Text>
+        <Text style={{fontSize:35, marginBottom: 20}}>Feed</Text>
+        <Button title="Go to Profile"></Button>
       </View>
     );
   }

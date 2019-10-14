@@ -13,6 +13,8 @@ const FirstNavGroup = createSwitchNavigator({
   Profile: {
     screen: Profile
   }
+},{
+  initialRouteName:'Feed'
 })
 
 export default createAppContainer(FirstNavGroup)
